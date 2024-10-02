@@ -29,3 +29,6 @@ error handling=> use try catch block
 throw new error
 server is not able to read json data as i am senidng in raw from postman but when i am sending it i need a middleware to convert it in javascript object
 that middleware is json
+//as this will automatically make it as findByIdAndDelete({\_id:id}); findbyid and delete
+any data which is not in schema will get ignored
+Done CRUD through postman
