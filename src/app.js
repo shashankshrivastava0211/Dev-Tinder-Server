@@ -1,21 +1,28 @@
 const express = require("express");
-const { AdminMiddleWare } = require("./middlewares/middlewares");
+const {
+  UserMiddleware,
+  AdminMiddleware,
+} = require("./middlewares/middlewares");
 const app = express();
 
-app.use("/admin", AdminMiddleWare, (req, res) => {
-  console.log("admin varifgication");
+app.use("/admin", AdminMiddleware, (req, res) => {
+  console.log("admin varification");
   res.send("hello admin");
 });
 
-app.get("/user", (req, res) => {
+app.use("/user", UserMiddleware, (req, res) => {
   res.send({ firstName: "shashank", lastName: "Shrivastava" });
-  console.log(req.query);
 });
 
 app.get("/ab?c", (req, res) => {
   res.send("a?bc");
 });
 
+app.use("/", (err, req, res, next) => {
+  if (err) {
+    res.status(500).send("Something went wrong");
+  }
+});
 app;
 
 app.listen(7777, () => {

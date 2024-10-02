@@ -24,3 +24,6 @@ middlewares
 
 when you triggers a API it goes in a middleware chamge until it finds the route which thr api is related to
 app.use() vs app.all()
+
+error handling=> use try catch block
+throw new error
