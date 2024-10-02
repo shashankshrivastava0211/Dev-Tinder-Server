@@ -3,19 +3,22 @@ require("./config/database");
 const User = require("./models/user");
 const app = express();
 
-app.post("/signup", async (req, res) => {
-  const userObj = {
-    firstName: "Shashank",
-    lastName: "Shrivastava",
-    password: "Shashank123",
-    age: 23,
-  };
+app.use(express.json());
 
-  const user = await new User(userObj);
+app.post("/signup", async (req, res) => {
+  const user = new User(req.body);
   await user.save();
-  res.status(200).send(user);
+  res.send("saved");
 });
 
+app.get("/get", async (req, res) => {
+  const users = await User.find({});
+  res.status(200).send;
+});
+app.get("/getOne", async (req, res) => {
+  const user = await User.findOne({ firstName: req.body.firstName });
+  res.status(200).send(user);
+});
 app.listen(7777, () => {
   console.log("PORT is running on 7777");
 });

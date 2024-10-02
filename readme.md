@@ -27,3 +27,5 @@ app.use() vs app.all()
 
 error handling=> use try catch block
 throw new error
+server is not able to read json data as i am senidng in raw from postman but when i am sending it i need a middleware to convert it in javascript object
+that middleware is json
