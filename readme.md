@@ -32,3 +32,4 @@ that middleware is json
 //as this will automatically make it as findByIdAndDelete({\_id:id}); findbyid and delete
 any data which is not in schema will get ignored
 Done CRUD through postman
+now using validator library to validate data
