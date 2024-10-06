@@ -33,3 +33,4 @@ that middleware is json
 any data which is not in schema will get ignored
 Done CRUD through postman
 now using validator library to validate data
+validator se hamne schema ko validate kra

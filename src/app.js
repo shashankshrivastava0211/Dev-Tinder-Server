@@ -32,7 +32,7 @@ app.delete("/delete", async (req, res) => {
   res.status(200).send(user);
 });
 
-app.patch("/user", async (req, res) => {
+app.patch("/user/:userId", async (req, res) => {
   const data = req.body;
   try {
     const ALLOWED_UPDATES = ["photoURL", "age", "about", "gender"];
