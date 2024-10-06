@@ -37,3 +37,8 @@ validator se hamne schema ko validate kra
 never trust req.body (attacker can send anything in req.body)
 flow of signup api
 validate api, hash password
+
+now making sure if youare not login you can access database in any way or prform any operation
+res.cookie("token", "bacsnbdskjbndek"); //sending cookie from here so that it can be accessible
+
+jwt token => header, payload, signature
