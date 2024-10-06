@@ -7,6 +7,7 @@ const User = require("./models/user");
 const { validateSignUp } = require("./utils/validations");
 
 app.use(express.json());
+
 //registering new user
 app.post("/signup", async (req, res) => {
   try {
@@ -24,6 +25,27 @@ app.post("/signup", async (req, res) => {
     });
     await user.save();
     res.send("saved");
+  } catch (err) {
+    res.status(400).send("ERROR : " + err.message);
+  }
+});
+//Login API
+app.post("/login", async (req, res) => {
+  try {
+    const { emailID, password } = req.body;
+
+    const user = await User.findOne({ emailID: emailID });
+
+    if (!user) {
+      throw new Error("Invalid credentials");
+    }
+    const comparePassword = await bcrypt.compare(password, user.password);
+
+    if (comparePassword) {
+      res.status(200).send("Login Successfull");
+    } else {
+      res.status(401).send("Invalid credentials");
+    }
   } catch (err) {
     res.status(400).send("ERROR : " + err.message);
   }
