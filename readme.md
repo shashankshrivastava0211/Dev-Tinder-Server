@@ -34,3 +34,6 @@ any data which is not in schema will get ignored
 Done CRUD through postman
 now using validator library to validate data
 validator se hamne schema ko validate kra
+never trust req.body (attacker can send anything in req.body)
+flow of signup api
+validate api, hash password
