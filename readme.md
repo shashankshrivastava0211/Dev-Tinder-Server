@@ -42,3 +42,5 @@ now making sure if youare not login you can access database in any way or prform
 res.cookie("token", "bacsnbdskjbndek"); //sending cookie from here so that it can be accessible
 
 jwt token => header, payload, signature
+steps for token validation is first create a hash password using
+Object.Keys=
