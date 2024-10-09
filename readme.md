@@ -44,3 +44,5 @@ res.cookie("token", "bacsnbdskjbndek"); //sending cookie from here so that it ca
 jwt token => header, payload, signature
 steps for token validation is first create a hash password using
 Object.Keys=
+enum are created when u want to restrict user for a perticual values
+in that case in a an array we use enums
