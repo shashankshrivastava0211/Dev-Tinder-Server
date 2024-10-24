@@ -46,9 +46,7 @@ const userSchema = new mongoose.Schema(
         }
       },
     },
-    gender: {
-      type: String,
-    },
+
     about: {
       type: String,
       default: "Hi, I'm new here.",
