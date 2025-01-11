@@ -5,7 +5,7 @@ const UserMiddleware = async (req, res, next) => {
   //read the token from the cookie and verify it
   try {
     const cookies = req.cookies;
-
+    console.log(cookies);
     const { token } = cookies;
     if (!token) {
       throw new Error("No token found");

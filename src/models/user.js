@@ -30,7 +30,7 @@ const userSchema = new mongoose.Schema(
     },
     gender: {
       type: String,
-      required: true,
+      // required: true,
       validate(value) {
         if (value !== "male" && value !== "female") {
           throw new Error("Gender must be male or female");
@@ -46,9 +46,7 @@ const userSchema = new mongoose.Schema(
         }
       },
     },
-    gender: {
-      type: String,
-    },
+
     about: {
       type: String,
       default: "Hi, I'm new here.",

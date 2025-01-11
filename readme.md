@@ -46,3 +46,20 @@ steps for token validation is first create a hash password using
 Object.Keys=
 enum are created when u want to restrict user for a perticual values
 in that case in a an array we use enums
+compound indexes like or and and can be user=d in miongodb
+like $or
+schema pre is a miidleware given to use by miongodb only to add a check at shchema lecvel basically this function is called before asaving any documebnt ud coolrction
+to check two different object id we use equals as they are not string
+putting indexes in databases i have sent three connection request if there are 1000 people in app and people are sending 100 request our connection request 100000 request this will be rtough to find as when data grows questy will get slow as finding it will be difficulot as there ase to be index to find the datab in databasw wif there arew many fdocumentns
+iwe can index are databaswin certain way such that role of a index :=>
+suppose 1million records suppose there are 100 people with name virat i want to find user with the susername search query y first name ius dtbase will tall of time to recierr db will have to go to each entyr to check is he virat is he virat and will the databa back
+if created index on firstnamew then the query eil become verry fadt whenver i am as iuinf=ex
+if your schema has somwthing as unique yiyr datavaw swukjk automaticall y make it index:true
+but unique indexes are much faster
+making unncessary indexes also anot a good question db has to store data such that your quetry 
+databbes are built using trees
+$or and inverse query
+schema.("pre")
+schea.index()
+always think abput corner cases and also think of making ur api's secrure now we will learn abpurt creating refernces and also howb to populate those connection
+set cookie in frontend
