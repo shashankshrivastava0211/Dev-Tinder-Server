@@ -15,6 +15,7 @@ connectionRouter.post(
 
       const status = req.params.status;
       const allowedStatus = ["ignored", "interested"];
+      const isValidtoUserId = await User.exists({ _id: toUserId });
 
       if (!isValidtoUserId) {
         throw new Error("you are sending request to an invalid user");

@@ -63,3 +63,9 @@ schema.("pre")
 schea.index()
 always think abput corner cases and also think of making ur api's secrure now we will learn abpurt creating refernces and also howb to populate those connection
 set cookie in frontend
+
+.limit()
+
+and .skip()
+.skip(0).limit(10) means it will give first 10 documents page 1
+.skip(10).limit(20) means it will give first 10 documents of page 2
