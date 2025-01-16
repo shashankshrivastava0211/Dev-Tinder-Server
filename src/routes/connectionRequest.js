@@ -113,5 +113,37 @@ connectionRouter.post(
     }
   }
 );
+connectionRouter.get("/getUserConnection", UserMiddleware, async (req, res) => {
+  try {
+    //check kro user id
+    //fr search kro ye userId connection scehma mei kaha hai as accepted sender bhi ho skti hai or reciever bhi
+    const loggedInUser = req.User;
+
+    const connections = await connectionRequest
+      .find({
+        $or: [
+          {
+            sender: loggedInUser._id,
+          },
+          {
+            receiver: loggedInUser._id,
+          },
+        ],
+        status: "accepted",
+      })
+      .populate("sender")
+      .populate("reciever");
+
+    res.status(200).json({
+      message: "success",
+      connections,
+    });
+  } catch (err) {
+    res.status(500).json({
+      message: "internal server error",
+    });
+    console.log(err.message);
+  }
+});
 
 module.exports = connectionRouter;
