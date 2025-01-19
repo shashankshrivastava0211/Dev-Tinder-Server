@@ -69,3 +69,10 @@ set cookie in frontend
 and .skip()
 .skip(0).limit(10) means it will give first 10 documents page 1
 .skip(10).limit(20) means it will give first 10 documents of page 2
+
+qGQVAFkalSqOBYMz
+shashankshrivastava1102
+
+now install socket.io
+now i have to congigure backend and frontend for socket.io
+http package

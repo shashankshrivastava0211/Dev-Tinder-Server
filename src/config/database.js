@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const connectDb = async () => {
   await mongoose.connect(
-    "mongodb+srv://shashankbackend807:khushi@dev-tinder.pgpac.mongodb.net/newDatabase?retryWrites=true&w=majority&appName=PayMate"
+    "mongodb+srv://shashankshrivastava1102:qGQVAFkalSqOBYMz@cluster0.vljzd.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
   );
 };
 

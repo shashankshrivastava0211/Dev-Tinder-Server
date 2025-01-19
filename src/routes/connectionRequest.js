@@ -113,12 +113,36 @@ connectionRouter.post(
     }
   }
 );
+
+connectionRouter.get(
+  "/getUserConnectionRequest",
+  UserMiddleware,
+  async (req, res) => {
+    try {
+      const loggedInUser = req.user;
+      const connectionRequestUser = await connectionRequest
+        .find({
+          receiver: loggedInUser._id,
+          status: "interested",
+        })
+        .populate("sender", ["firstName", "lastName"]);
+
+      res.status(200).json({ success: true, data: connectionRequestUser });
+    } catch (err) {
+      res.status(500).json({
+        message: "internal server error",
+        error: err.message,
+      });
+    }
+  }
+);
 connectionRouter.get("/getUserConnection", UserMiddleware, async (req, res) => {
   try {
     //check kro user id
     //fr search kro ye userId connection scehma mei kaha hai as accepted sender bhi ho skti hai or reciever bhi
-    const loggedInUser = req.User;
+    const loggedInUser = req.user;
 
+    console.log(loggedInUser);
     const connections = await connectionRequest
       .find({
         $or: [
@@ -132,15 +156,24 @@ connectionRouter.get("/getUserConnection", UserMiddleware, async (req, res) => {
         status: "accepted",
       })
       .populate("sender")
-      .populate("reciever");
+      .populate("receiver");
+
+    const data = connections.map((item) => {
+      if (item.sender._id.toString() === loggedInUser._id.toString()) {
+        return item.receiver;
+      } else {
+        return item.sender;
+      }
+    });
 
     res.status(200).json({
       message: "success",
-      connections,
+      data,
     });
   } catch (err) {
     res.status(500).json({
       message: "internal server error",
+      error: err.message,
     });
     console.log(err.message);
   }
